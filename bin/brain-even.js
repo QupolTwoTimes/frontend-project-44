@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 /* eslint-disable no-unused-expressions */
 import readlineSync from 'readline-sync';
-import askName from '../src/cli.js';
 
+console.log('Welcome to the Brain Games!');
+const userName = readlineSync.question('May I have your name? ');
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
+
 let trueAnswerCounter = 0;
 let checkValue = '';
 let userAnswer = '';
 let checkingCorrectnessAnswer;
-const userName = askName();
+
 do {
   const randomNumber = Math.floor(100 * Math.random());
   randomNumber % 2 === 0 ? checkValue = 'yes' : checkValue = 'no';
