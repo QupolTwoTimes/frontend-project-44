@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "bin": {
     "brain-games": "bin/brain-games.js",
-    "brain-even": "bin/brain-even.js"
+    "brain-even": "bin/brain-even.js",
+    "brain-calc": "bin/brain-calc.js"
   },
   "description": "[![Actions Status](https://github.com/QupolTwoTimes/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/QupolTwoTimes/frontend-project-44/actions)",
   "main": "index.js",
@@ -25,7 +26,7 @@
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
-    "eslint": "^8.28.0",
+    "eslint": "^8.27.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0"
   }
