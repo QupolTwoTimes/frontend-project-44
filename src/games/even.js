@@ -18,9 +18,9 @@ do {
   randomNumber % 2 === 0 ? checkValue = 'yes' : checkValue = 'no';
   userAnswer = readlineSync.question(`Question: ${randomNumber} `);
   console.log(`Your answer: ${userAnswer}`);
-    if (compareResults(userAnswer, checkValue)) {
-      trueAnswerCounter += 1;
-    } 
+  if (compareResults(userAnswer, checkValue)) {
+    trueAnswerCounter += 1;
+  }
 } while (userAnswer === checkValue && trueAnswerCounter !== 3);
 
 congratulations(trueAnswerCounter, userName, userAnswer, checkValue);
