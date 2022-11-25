@@ -28,8 +28,9 @@ do {
     }
   }
   userAnswer = readlineSync.question(`Question: ${randomNumber} `);
-  compareResults(userAnswer, checkValue);
-  trueAnswerCounter += 1;
+  if (compareResults(userAnswer, checkValue)) {
+    trueAnswerCounter += 1;
+  }
 } while (trueAnswerCounter !== 3 && userAnswer === checkValue);
 
 congratulations(trueAnswerCounter, userName, userAnswer, checkValue);

@@ -29,8 +29,9 @@ do {
   arrProgression[randomElemFromArray] = '..';
   userAnswer = readlineSync.question(`Question: ${arrProgression.join(' ')} `);
 
-  compareResults(userAnswer, checkValue);
-  trueAnswerCounter += 1;
+  if (compareResults(userAnswer, checkValue)) {
+    trueAnswerCounter += 1;
+  }
   arrProgression = [];
 } while (trueAnswerCounter !== 3 && userAnswer === String(checkValue));
 

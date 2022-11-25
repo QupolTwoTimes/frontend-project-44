@@ -14,7 +14,9 @@ const sayHello = (userName) => {
 const compareResults = (userAnswer, checkValue) => {
   if (userAnswer === String(checkValue)) {
     console.log('Correct!');
+    return true;
   }
+  return false;
 };
 
 const congratulations = (trueAnswerCounter, userName, userAnswer, checkValue) => {

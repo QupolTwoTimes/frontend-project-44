@@ -29,8 +29,9 @@ do {
   userAnswer = readlineSync.question(`Question: ${numberFirst} ${mathOperations} ${numberSecond} `);
   console.log(`Your answer:  ${userAnswer}`);
 
-  compareResults(userAnswer, checkValue);
-  trueAnswerCounter += 1;
+  if (compareResults(userAnswer, checkValue)) {
+    trueAnswerCounter += 1;
+  }
 } while (trueAnswerCounter !== 3 && userAnswer === String(checkValue));
 
 congratulations(trueAnswerCounter, userName, userAnswer, checkValue);
