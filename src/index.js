@@ -1,32 +1,36 @@
 import readlineSync from 'readline-sync';
 
-const welcome = () => {
+const roundCount = 3;
+
+const engine = (gameRigth, roundGenerate) => {
   console.log('Welcome to the Brain Games!');
-};
-const askName = () => {
   const userName = readlineSync.question('May I have your name? ');
-  return userName;
-};
-const sayHello = (userName) => {
   console.log(`Hello, ${userName}!`);
-};
+  console.log(gameRigth);
+  let check;
+  let userAnswer;
+  let rightAnswer;
 
-const compareResults = (userAnswer, checkValue) => {
-  if (userAnswer === String(checkValue)) {
-    console.log('Correct!');
-    return true;
+  for (let i = 0; i < roundCount; i += 1) {
+    const [question, answer] = roundGenerate();
+    userAnswer = readlineSync.question(question);
+    console.log(`Your answer: ${userAnswer}`);
+    if (userAnswer !== answer) {
+      check = false;
+      rightAnswer = answer;
+      break;
+    } else if (userAnswer === answer) {
+      check = true;
+      console.log('Correct!');
+    }
   }
-  return false;
-};
 
-const congratulations = (trueAnswerCounter, userName, userAnswer, checkValue) => {
-  if (trueAnswerCounter === 3) {
+  if (roundCount === 3 && check) {
     console.log(`Congratulations, ${userName}!`);
   } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${String(checkValue)}'`);
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${String(rightAnswer)}'`);
     console.log(`Let's try again, ${userName}!`);
   }
 };
-export {
-  welcome, askName, sayHello, compareResults, congratulations,
-};
+
+export default engine;

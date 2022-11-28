@@ -1,44 +1,27 @@
 /* eslint-disable import/no-unresolved */
-import readlineSync from 'readline-sync';
-import {
-  welcome, askName, sayHello, compareResults, congratulations,
-} from '../index.js';
+import engine from '../index.js';
 
-welcome();
-const userName = askName();
-sayHello(userName);
-console.log('What is the result of the expression?');
+const gameRigth = 'What is the result of the expression?';
+let question;
 
-let trueAnswerCounter = 0;
-let checkValue;
-let userAnswer;
-const arrMathOperations = ['+', '-', '*'];
-
-do {
+const gameLogic = () => {
+  const arrMathOperations = ['+', '-', '*'];
   const numberFirst = Math.floor(10 * Math.random());
   const numberSecond = Math.floor(10 * Math.random());
   const mathOperations = arrMathOperations[Math.floor(Math.random() * arrMathOperations.length)];
-
+  let answer;
   if (mathOperations === '+') {
-    checkValue = numberFirst + numberSecond;
+    answer = String(numberFirst + numberSecond);
   } else if (mathOperations === '-') {
-    checkValue = numberFirst - numberSecond;
+    answer = String(numberFirst - numberSecond);
   } else {
-    checkValue = numberFirst * numberSecond;
+    answer = String(numberFirst * numberSecond);
   }
-  userAnswer = readlineSync.question(`Question: ${numberFirst} ${mathOperations} ${numberSecond} `);
-  console.log(`Your answer:  ${userAnswer}`);
-
-  if (compareResults(userAnswer, checkValue)) {
-    trueAnswerCounter += 1;
-  }
-} while (trueAnswerCounter !== 3 && userAnswer === String(checkValue));
-
-congratulations(trueAnswerCounter, userName, userAnswer, checkValue);
-
+  question = `Question: ${numberFirst} ${mathOperations} ${numberSecond} `;
+  return [question, answer];
+};
+engine(gameRigth, gameLogic);
 const makeStart = () => {
 };
 
-export {
-  welcome, askName, sayHello, compareResults, congratulations, makeStart,
-};
+export { engine, makeStart };

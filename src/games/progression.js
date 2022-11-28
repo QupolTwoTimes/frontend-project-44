@@ -1,21 +1,14 @@
 /* eslint-disable no-unused-expressions */
-import readlineSync from 'readline-sync';
-import {
-  welcome, askName, sayHello, compareResults, congratulations,
-} from '../index.js';
+import engine from '../index.js';
 
-welcome();
-const userName = askName();
-sayHello(userName);
-console.log('What number is missing in the progression?');
+const gameRigth = 'What number is missing in the progression?';
 
-let trueAnswerCounter = 0;
-let checkValue = '';
-let userAnswer = '';
 let randomElemFromArray;
 let arrProgression = [];
+let question;
 
-do {
+const gameLogic = () => {
+  let answer = '';
   const stepProgressionValue = Math.floor(Math.random() * (10 - 5) + 1);
   const randomStart = Math.floor(Math.random() * (106 - 5));
   let longProgressionCounter = 0;
@@ -25,21 +18,15 @@ do {
     arrProgression.push(i);
   }
   randomElemFromArray = Math.floor(Math.random() * arrProgression.length);
-  checkValue = arrProgression[randomElemFromArray];
+  answer = String(arrProgression[randomElemFromArray]);
   arrProgression[randomElemFromArray] = '..';
-  userAnswer = readlineSync.question(`Question: ${arrProgression.join(' ')} `);
-
-  if (compareResults(userAnswer, checkValue)) {
-    trueAnswerCounter += 1;
-  }
+  question = `Question: ${arrProgression.join(' ')} `;
   arrProgression = [];
-} while (trueAnswerCounter !== 3 && userAnswer === String(checkValue));
+  return [question, answer];
+};
 
-congratulations(trueAnswerCounter, userName, userAnswer, checkValue);
-
+engine(gameRigth, gameLogic);
 const makeStart = () => {
 };
 
-export {
-  welcome, askName, sayHello, compareResults, congratulations, makeStart,
-};
+export { engine, makeStart };
