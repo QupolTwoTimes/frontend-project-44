@@ -1,27 +1,32 @@
 /* eslint-disable import/no-unresolved */
+import readlineSync from 'readline-sync';
 import engine from '../index.js';
+import generateRandomInRange from '../utils.js';
 
-const gameRigth = 'What is the result of the expression?';
-let question;
+const gameRules = 'What is the result of the expression?';
 
-const gameLogic = () => {
-  const arrMathOperations = ['+', '-', '*'];
-  const numberFirst = Math.floor(10 * Math.random());
-  const numberSecond = Math.floor(10 * Math.random());
-  const mathOperations = arrMathOperations[Math.floor(Math.random() * arrMathOperations.length)];
-  let answer;
-  if (mathOperations === '+') {
-    answer = String(numberFirst + numberSecond);
-  } else if (mathOperations === '-') {
-    answer = String(numberFirst - numberSecond);
-  } else {
-    answer = String(numberFirst * numberSecond);
+const getRandomOperator = () => {
+  const operators = ['+', '-', '*'];
+  return operators[generateRandomInRange(0, operators.length)];
+};
+
+const calculate = (num1, num2, operator) => {
+  if (operator === '+') {
+    return num1 + num2;
+  } if (operator === '-') {
+    return num1 - num2;
   }
-  question = `Question: ${numberFirst} ${mathOperations} ${numberSecond} `;
-  return [question, answer];
-};
-engine(gameRigth, gameLogic);
-const makeStart = () => {
+  return num1 * num2;
 };
 
-export { engine, makeStart };
+const generateRound = () => {
+  const num1 = generateRandomInRange(0, 10);
+  const num2 = generateRandomInRange(0, 10);
+  const operator = getRandomOperator();
+  return [readlineSync.question(`Question: ${num1} ${operator} ${num2} `),
+    String(calculate(num1, num2, operator))];
+};
+
+export default () => {
+  engine(gameRules, generateRound);
+};

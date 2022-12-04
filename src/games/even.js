@@ -1,17 +1,15 @@
 /* eslint-disable no-unused-expressions */
+import readlineSync from 'readline-sync';
 import engine from '../index.js';
+import generateRandomInRange from '../utils.js';
 
-const gameRigth = 'Answer "yes" if the number is even, otherwise answer "no".';
-let question;
-const gameLogic = () => {
+const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
+const generateRound = () => {
   let answer = '';
-  const randomNumber = Math.floor(100 * Math.random());
+  const randomNumber = generateRandomInRange(0, 100);
   randomNumber % 2 === 0 ? answer = 'yes' : answer = 'no';
-  question = `Question: ${randomNumber} `;
-  return [question, answer];
+  return [readlineSync.question(`Question: ${randomNumber} `), answer];
 };
-engine(gameRigth, gameLogic);
-const makeStart = () => {
+export default () => {
+  engine(gameRules, generateRound);
 };
-
-export { engine, makeStart };

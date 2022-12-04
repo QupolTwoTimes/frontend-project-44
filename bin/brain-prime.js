@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import * as primeModule from '../src/games/prime.js';
+import runPrimeGame from '../src/games/prime.js';
 
-primeModule.makeStart();
+runPrimeGame();

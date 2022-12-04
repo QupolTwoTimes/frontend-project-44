@@ -1,32 +1,33 @@
 /* eslint-disable no-unused-expressions */
+import readlineSync from 'readline-sync';
 import engine from '../index.js';
+import generateRandomInRange from '../utils.js';
 
-const gameRigth = 'What number is missing in the progression?';
-
+const gameRules = 'What number is missing in the progression?';
 let randomElemFromArray;
 let arrProgression = [];
-let question;
+let answer = '';
 
-const gameLogic = () => {
-  let answer = '';
-  const stepProgressionValue = Math.floor(Math.random() * (10 - 5) + 1);
-  const randomStart = Math.floor(Math.random() * (106 - 5));
+const calculate = (stepProgressionValue, randomStart) => {
+  arrProgression = [];
   let longProgressionCounter = 0;
-
   for (let i = randomStart; longProgressionCounter <= 10; i += stepProgressionValue) {
     longProgressionCounter += 1;
     arrProgression.push(i);
   }
-  randomElemFromArray = Math.floor(Math.random() * arrProgression.length);
+  randomElemFromArray = generateRandomInRange(0, arrProgression.length);
   answer = String(arrProgression[randomElemFromArray]);
   arrProgression[randomElemFromArray] = '..';
-  question = `Question: ${arrProgression.join(' ')} `;
-  arrProgression = [];
-  return [question, answer];
+  return answer;
 };
 
-engine(gameRigth, gameLogic);
-const makeStart = () => {
+const generateRound = () => {
+  const stepProgressionValue = generateRandomInRange(1, 10);
+  const randomStart = generateRandomInRange(1, 100);
+  answer = calculate(stepProgressionValue, randomStart);
+  return [readlineSync.question(`Question: ${arrProgression.join(' ')} `), answer];
 };
 
-export { engine, makeStart };
+export default () => {
+  engine(gameRules, generateRound);
+};

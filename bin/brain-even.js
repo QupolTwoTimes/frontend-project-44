@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import * as evenModule from '../src/games/even.js';
+import runEvenGame from '../src/games/even.js';
 
-evenModule.makeStart();
+runEvenGame();
