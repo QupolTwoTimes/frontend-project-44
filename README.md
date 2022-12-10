@@ -10,7 +10,7 @@ This project is a set of 5 math games.
 To win each of them, you must give three correct answers in a row. If the answer is wrong, the game will restart.
 * #### Instructions for install:
      1. Use "git clone git@github.com:QupolTwoTimes/frontend-project-44.git" in command line.
-     2. Use command 'npm link' in command line.
+     2. Use command 'sudo npm link' in command line.
      3. Download and install [readlline-sync](https://github.com/anseki/readline-sync) library.
 * #### Instructions for games:
 To start the game, you must text her name in command line.
