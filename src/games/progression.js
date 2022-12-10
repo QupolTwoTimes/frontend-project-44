@@ -7,7 +7,6 @@ const gameRules = 'What number is missing in the progression?';
 let randomElemFromArray;
 let arrProgression = [];
 let answer = '';
-
 const calculate = (stepProgressionValue, randomStart, generateProgression) => {
   arrProgression = [];
   for (let i = randomStart; arrProgression.length <= generateProgression;
@@ -24,9 +23,8 @@ const generateRound = () => {
   const stepProgressionValue = generateRandomInRange(1, 10);
   const randomStart = generateRandomInRange(1, 100);
   const generateProgression = generateRandomInRange(5, 10);
-  const question = readlineSync.question(`Question: ${arrProgression.join(' ')} `);
   answer = calculate(stepProgressionValue, randomStart, generateProgression);
-  return [question, answer];
+  return [readlineSync.question(`Question: ${arrProgression.join(' ')} `), answer];
 };
 
 export default () => {
