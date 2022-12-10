@@ -8,11 +8,10 @@ let randomElemFromArray;
 let arrProgression = [];
 let answer = '';
 
-const calculate = (stepProgressionValue, randomStart) => {
+const calculate = (stepProgressionValue, randomStart, generateProgression) => {
   arrProgression = [];
-  let longProgressionCounter = 0;
-  for (let i = randomStart; longProgressionCounter <= 10; i += stepProgressionValue) {
-    longProgressionCounter += 1;
+  for (let i = randomStart; arrProgression.length <= generateProgression;
+    i += stepProgressionValue) {
     arrProgression.push(i);
   }
   randomElemFromArray = generateRandomInRange(0, arrProgression.length);
@@ -24,8 +23,10 @@ const calculate = (stepProgressionValue, randomStart) => {
 const generateRound = () => {
   const stepProgressionValue = generateRandomInRange(1, 10);
   const randomStart = generateRandomInRange(1, 100);
-  answer = calculate(stepProgressionValue, randomStart);
-  return [readlineSync.question(`Question: ${arrProgression.join(' ')} `), answer];
+  const generateProgression = generateRandomInRange(5, 10);
+  const question = readlineSync.question(`Question: ${arrProgression.join(' ')} `);
+  answer = calculate(stepProgressionValue, randomStart, generateProgression);
+  return [question, answer];
 };
 
 export default () => {

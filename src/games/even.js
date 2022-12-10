@@ -4,11 +4,19 @@ import engine from '../index.js';
 import generateRandomInRange from '../utils.js';
 
 const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+const isEven = (randomNumber) => {
+  if (randomNumber % 2 === 0) {
+    return true;
+  }
+  return false;
+};
+
 const generateRound = () => {
-  let answer = '';
   const randomNumber = generateRandomInRange(0, 100);
-  randomNumber % 2 === 0 ? answer = 'yes' : answer = 'no';
-  return [readlineSync.question(`Question: ${randomNumber} `), answer];
+  const question = readlineSync.question(`Question: ${randomNumber} `);
+  const answer = isEven(randomNumber) ? 'yes' : 'no';
+  return [question, answer];
 };
 export default () => {
   engine(gameRules, generateRound);

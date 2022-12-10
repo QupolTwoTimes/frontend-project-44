@@ -22,8 +22,9 @@ const calculate = (numberFirst, numberSecond) => {
 const generateRound = () => {
   const numberFirst = generateRandomInRange(1, 50);
   const numberSecond = generateRandomInRange(1, 50);
+  const question = readlineSync.question(`Question: ${numberFirst} ${numberSecond} `);
   answer = calculate(numberFirst, numberSecond);
-  return [readlineSync.question(`Question: ${numberFirst} ${numberSecond} `), answer];
+  return [question, answer];
 };
 
 export default () => {

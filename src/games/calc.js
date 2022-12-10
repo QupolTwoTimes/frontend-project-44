@@ -17,14 +17,16 @@ const calculate = (num1, num2, operator) => {
     return num1 - num2;
   }
   return num1 * num2;
+  // О каком приходе кривого оператора идет речь, если они генерируются из заданных значений?
 };
 
 const generateRound = () => {
   const num1 = generateRandomInRange(0, 10);
   const num2 = generateRandomInRange(0, 10);
   const operator = getRandomOperator();
-  return [readlineSync.question(`Question: ${num1} ${operator} ${num2} `),
-    String(calculate(num1, num2, operator))];
+  const question = readlineSync.question(`Question: ${num1} ${operator} ${num2} `);
+  const answer = String(calculate(num1, num2, operator));
+  return [question, answer];
 };
 
 export default () => {

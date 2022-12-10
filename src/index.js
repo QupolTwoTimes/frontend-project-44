@@ -16,7 +16,7 @@ const engine = (gameRules, generateRound) => {
       console.log('Correct!');
     } else if (question !== answer) {
       return console.log(`'${question}' is wrong answer ;(. Correct answer was '${String(answer)}'
-Let's try again, ${userName}!`);
+    Let's try again, ${userName}!`);
     }
   }
   return console.log(`Congratulations, ${userName}!`);
