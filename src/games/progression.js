@@ -23,8 +23,9 @@ const generateRound = () => {
   const stepProgressionValue = generateRandomInRange(1, 10);
   const randomStart = generateRandomInRange(1, 100);
   const generateProgression = generateRandomInRange(5, 10);
+  const question = readlineSync.question(`Question: ${arrProgression.join(' ')} `);
   answer = calculate(stepProgressionValue, randomStart, generateProgression);
-  return [readlineSync.question(`Question: ${arrProgression.join(' ')} `), answer];
+  return [question, answer];
 };
 
 export default () => {
