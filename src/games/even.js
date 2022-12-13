@@ -5,12 +5,7 @@ import generateRandomInRange from '../utils.js';
 
 const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isEven = (randomNumber) => {
-  if (randomNumber % 2 === 0) {
-    return true;
-  }
-  return false;
-};
+const isEven = (randomNumber) => randomNumber % 2 === 0;
 
 const generateRound = () => {
   const randomNumber = generateRandomInRange(0, 100);

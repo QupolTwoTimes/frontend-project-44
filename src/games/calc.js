@@ -15,8 +15,10 @@ const calculate = (num1, num2, operator) => {
     return num1 + num2;
   } if (operator === '-') {
     return num1 - num2;
+  } if (operator === '*') {
+    return num1 * num2;
   }
-  return num1 * num2;
+  throw new Error(`Operator ${operator} - doesn't supported`);
 };
 
 const generateRound = () => {

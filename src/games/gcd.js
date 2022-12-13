@@ -6,24 +6,18 @@ import generateRandomInRange from '../utils.js';
 const gameRules = 'Find the greatest common divisor of given numbers.';
 let answer;
 
-const calculate = (numberFirst, numberSecond) => {
-  const array = [numberFirst, numberSecond];
-  const bigNumber = Math.min.apply(null, array);
-  const smallNumber = Math.max.apply(null, array);
-  for (let i = 1; i <= smallNumber; i += 1) {
-    if (bigNumber === smallNumber) {
-      answer = String(bigNumber);
-    } else if (bigNumber % i === 0 && smallNumber % i === 0) {
-      answer = String(i);
-    }
+const getGcd = (numberFirst, numberSecond) => {
+  if (numberFirst === 0) {
+    return numberSecond;
   }
-  return answer;
+  return getGcd(numberSecond % numberFirst, numberFirst);
 };
+
 const generateRound = () => {
   const numberFirst = generateRandomInRange(1, 50);
   const numberSecond = generateRandomInRange(1, 50);
   const question = readlineSync.question(`Question: ${numberFirst} ${numberSecond} `);
-  answer = calculate(numberFirst, numberSecond);
+  answer = String(getGcd(numberFirst, numberSecond));
   return [question, answer];
 };
 
