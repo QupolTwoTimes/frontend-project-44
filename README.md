@@ -25,13 +25,23 @@ The rules of each game will be shown after launch.
     * [start brain-progression](https://asciinema.org/aT72lLdZpJ5cxHdk6RO15vPUW2); 
     * [start brain-prime](https://asciinema.org/a/8sJjQI43MMpCYUkqMVr4UxxhX);
 
+####brain-even
 
-[![asciicast](https://asciinema.org/a/T1RasqMNxUGAzTlvFQKHpYWIO.png)](https://asciinema.org/a/T1RasqMNxUGAzTlvFQKHpYWIO)
- 
-[![asciicast](https://asciinema.org/a/TIFRdSMgwnnTGFCy2iQcnOu4V.png)](https://asciinema.org/a/TIFRdSMgwnnTGFCy2iQcnOu4V) 
+[![asciicast](https://asciinema.org/a/T1RasqMNxUGAzTlvFQKHpYWIO.svg)](https://asciinema.org/a/T1RasqMNxUGAzTlvFQKHpYWIO)
 
-[![asciicast](https://asciinema.org/a/qllL4VTQz4x3N8jkMPa5jhV4u.png)](https://asciinema.org/a/qllL4VTQz4x3N8jkMPa5jhV4u) 
+####brain-calc
 
-[![asciicast](https://asciinema.org/a/T72lLdZpJ5cxHdk6RO15vPUW2.png)](https://asciinema.org/a/T72lLdZpJ5cxHdk6RO15vPUW2) 
+[![asciicast](https://asciinema.org/a/TIFRdSMgwnnTGFCy2iQcnOu4V.svg))](https://asciinema.org/a/TIFRdSMgwnnTGFCy2iQcnOu4V) 
 
-[![asciicast](https://asciinema.org/a/8sJjQI43MMpCYUkqMVr4UxxhX.png)](https://asciinema.org/a/8sJjQI43MMpCYUkqMVr4UxxhX)
+####brain-gcd
+
+[![asciicast](https://asciinema.org/a/qllL4VTQz4x3N8jkMPa5jhV4u.svg))](https://asciinema.org/a/qllL4VTQz4x3N8jkMPa5jhV4u) 
+
+####brain-progression
+
+[![asciicast](https://asciinema.org/a/T72lLdZpJ5cxHdk6RO15vPUW2.svg))](https://asciinema.org/a/T72lLdZpJ5cxHdk6RO15vPUW2) 
+
+####brain-prime
+
+[![asciicast](https://asciinema.org/a/8sJjQI43MMpCYUkqMVr4UxxhX.svg))](https://asciinema.org/a/8sJjQI43MMpCYUkqMVr4UxxhX)
+
