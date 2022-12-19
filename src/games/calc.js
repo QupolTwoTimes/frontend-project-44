@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unresolved */
-import readlineSync from 'readline-sync';
 import engine from '../index.js';
 import generateRandomInRange from '../utils.js';
 
@@ -25,7 +24,7 @@ const generateRound = () => {
   const num1 = generateRandomInRange(0, 10);
   const num2 = generateRandomInRange(0, 10);
   const operator = getRandomOperator();
-  const question = readlineSync.question(`Question: ${num1} ${operator} ${num2} `);
+  const question = `Question: ${num1} ${operator} ${num2} `;
   const answer = String(calculate(num1, num2, operator));
   return [question, answer];
 };

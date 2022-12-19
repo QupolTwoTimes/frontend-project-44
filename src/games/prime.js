@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unresolved */
-import readlineSync from 'readline-sync';
 import engine from '../index.js';
 import generateRandomInRange from '../utils.js';
 
@@ -19,7 +18,7 @@ const isPrime = (randomNumber) => {
 
 const generateRound = () => {
   const randomNumber = generateRandomInRange(1, 200);
-  const question = readlineSync.question(`Question: ${randomNumber} `);
+  const question = `Question: ${randomNumber} `;
   const answer = isPrime(randomNumber) ? 'yes' : 'no';
   return [question, answer];
 };

@@ -10,12 +10,15 @@ const engine = (gameRules, generateRound) => {
 
   for (let i = 0; i < roundsCount; i += 1) {
     const [question, answer] = generateRound();
+
+    console.log(question);
+    const userAnswer = readlineSync.question();
     console.log(`Your answer: ${question}`);
 
-    if (question === answer) {
+    if (userAnswer === answer) {
       console.log('Correct!');
-    } else if (question !== answer) {
-      console.log(`'${question}' is wrong answer ;(. Correct answer was '${String(answer)}'
+    } else if (userAnswer !== answer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${String(answer)}'
     Let's try again, ${userName}!`);
       return;
     }

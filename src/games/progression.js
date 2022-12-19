@@ -1,31 +1,28 @@
 /* eslint-disable no-unused-expressions */
-import readlineSync from 'readline-sync';
 import engine from '../index.js';
 import generateRandomInRange from '../utils.js';
 
 const gameRules = 'What number is missing in the progression?';
-let randomElemFromArray;
-let arrProgression = [];
-let answer = '';
 
 const getProgression = (stepProgressionValue, randomStart, generateProgression) => {
-  arrProgression = [];
+  const arrProgression = [];
   for (let i = randomStart; arrProgression.length <= generateProgression;
     i += stepProgressionValue) {
     arrProgression.push(i);
   }
-  randomElemFromArray = generateRandomInRange(0, arrProgression.length - 1);
-  answer = String(arrProgression[randomElemFromArray]);
-  arrProgression[randomElemFromArray] = '..';
-  return answer;
+  return arrProgression;
 };
 
 const generateRound = () => {
   const stepProgressionValue = generateRandomInRange(1, 10);
   const randomStart = generateRandomInRange(1, 100);
   const generateProgression = generateRandomInRange(5, 10);
-  answer = getProgression(stepProgressionValue, randomStart, generateProgression);
-  const question = readlineSync.question(`Question: ${arrProgression.join(' ')} `);
+  const array = getProgression(stepProgressionValue, randomStart, generateProgression);
+  const randomElemFromArray = generateRandomInRange(0, array.length - 1);
+
+  const answer = String(array[randomElemFromArray]);
+  array[randomElemFromArray] = '..';
+  const question = `Question: ${array.join(' ')} `;
   return [question, answer];
 };
 
