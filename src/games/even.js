@@ -12,6 +12,7 @@ const generateRound = () => {
   const answer = isEven(randomNumber) ? 'yes' : 'no';
   return [question, answer];
 };
+
 export default () => {
   engine(gameRules, generateRound);
 };

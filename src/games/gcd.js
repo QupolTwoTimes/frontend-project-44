@@ -4,18 +4,18 @@ import generateRandomInRange from '../utils.js';
 
 const gameRules = 'Find the greatest common divisor of given numbers.';
 
-const getGcd = (numberFirst, numberSecond) => {
-  if (numberFirst === 0) {
-    return numberSecond;
+const getGcd = (num1, num2) => {
+  if (num1 === 0) {
+    return num2;
   }
-  return getGcd(numberSecond % numberFirst, numberFirst);
+  return getGcd(num2 % num1, num1);
 };
 
 const generateRound = () => {
-  const numberFirst = generateRandomInRange(1, 50);
-  const numberSecond = generateRandomInRange(1, 50);
-  const question = `Question: ${numberFirst} ${numberSecond} `;
-  const answer = String(getGcd(numberFirst, numberSecond));
+  const num1 = generateRandomInRange(1, 50);
+  const num2 = generateRandomInRange(1, 50);
+  const question = `Question: ${num1} ${num2} `;
+  const answer = String(getGcd(num1, num2));
   return [question, answer];
 };
 

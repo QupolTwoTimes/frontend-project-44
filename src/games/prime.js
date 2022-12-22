@@ -22,6 +22,7 @@ const generateRound = () => {
   const answer = isPrime(randomNumber) ? 'yes' : 'no';
   return [question, answer];
 };
+
 export default () => {
   engine(gameRules, generateRound);
 };
